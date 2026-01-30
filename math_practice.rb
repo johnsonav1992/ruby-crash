@@ -32,16 +32,18 @@ puts '4. Division'
 
 puts 'press q at any time to quit'
 
-while gets.chomp.downcase != 'q'
-  choice = gets.chomp.to_i
+input = gets.chomp
+
+while input.downcase != 'q'
+  choice = input.to_i
   
   case choice
   when 1
     a, b = get_operands
     ask_question(a, b, '+')
-  
+
     answer = gets.chomp.to_i
-  
+
     if answer == a + b
       puts 'Correct!'
     else
@@ -50,9 +52,9 @@ while gets.chomp.downcase != 'q'
   when 2
     a, b = get_operands
     ask_question(a, b, '-')
-  
+
     answer = gets.chomp.to_i
-  
+
     if answer == a - b
       puts 'Correct!'
     else
@@ -60,8 +62,8 @@ while gets.chomp.downcase != 'q'
     end
   when 3
     a, b = get_operands
-    ask_question
-  
+    ask_question(a, b, '*')
+
     answer = gets.chomp.to_i
     if answer == a * b
       puts 'Correct!'
@@ -71,9 +73,9 @@ while gets.chomp.downcase != 'q'
   when 4
     b = rand(1..10)
     a = b * rand(1..10)
-  
-    ask_question
-  
+
+    ask_question(a, b, '/')
+
     answer = gets.chomp.to_i
     if answer == a / b
       puts 'Correct!'
@@ -83,6 +85,8 @@ while gets.chomp.downcase != 'q'
   else
     puts 'Invalid choice. Please select a number between 1 and 4.'
   end
+
+  input = gets.chomp
 end
 
 

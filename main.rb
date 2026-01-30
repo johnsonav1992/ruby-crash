@@ -15,7 +15,12 @@ end
 
 # Array manipulation
 numbers = [1, 2, 3, 4, 5]
-doubled = numbers.map { |n| n * 2 }
+doubled = numbers.map { |n|  n * 2 }
+
+numbers.map do |number| 
+  puts "Number: #{number}"
+  
+end
 puts "Original: #{numbers}"
 puts "Doubled: #{doubled}"
 

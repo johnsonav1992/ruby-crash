@@ -57,6 +57,7 @@ while input.downcase != 'q'
 
     if answer == a - b
       puts 'Correct!'
+      ask_question(a, b, '+')
     else
       puts "Incorrect. The correct answer is #{a - b}."
     end

@@ -23,28 +23,29 @@ end
 
 puts 'Welcome to Math Practice!'
 
-puts 'What type of math problems would you like to practice?'
+loop do
+  puts
+  puts 'What type of math problems would you like to practice?'
+  puts '1. Addition'
+  puts '2. Subtraction'
+  puts '3. Multiplication'
+  puts '4. Division'
+  puts 'Press q to quit'
 
-puts '1. Addition'
-puts '2. Subtraction'
-puts '3. Multiplication'
-puts '4. Division'
+  input = gets.chomp
+  break if input.downcase == 'q'
 
-puts 'press q at any time to quit'
-
-input = gets.chomp
-
-while input.downcase != 'q'
   choice = input.to_i
-  
+
   case choice
   when 1
     a, b = get_operands
     ask_question(a, b, '+')
 
-    answer = gets.chomp.to_i
+    answer = gets.chomp
+    break if answer.downcase == 'q'
 
-    if answer == a + b
+    if answer.to_i == a + b
       puts 'Correct!'
     else
       puts "Incorrect. The correct answer is #{a + b}."
@@ -53,9 +54,10 @@ while input.downcase != 'q'
     a, b = get_operands
     ask_question(a, b, '-')
 
-    answer = gets.chomp.to_i
+    answer = gets.chomp
+    break if answer.downcase == 'q'
 
-    if answer == a - b
+    if answer.to_i == a - b
       puts 'Correct!'
       ask_question(a, b, '+')
     else
@@ -65,8 +67,10 @@ while input.downcase != 'q'
     a, b = get_operands
     ask_question(a, b, '*')
 
-    answer = gets.chomp.to_i
-    if answer == a * b
+    answer = gets.chomp
+    break if answer.downcase == 'q'
+
+    if answer.to_i == a * b
       puts 'Correct!'
     else
       puts "Incorrect. The correct answer is #{a * b}."
@@ -77,8 +81,10 @@ while input.downcase != 'q'
 
     ask_question(a, b, '/')
 
-    answer = gets.chomp.to_i
-    if answer == a / b
+    answer = gets.chomp
+    break if answer.downcase == 'q'
+
+    if answer.to_i == a / b
       puts 'Correct!'
     else
       puts "Incorrect. The correct answer is #{a / b}."
@@ -86,9 +92,6 @@ while input.downcase != 'q'
   else
     puts 'Invalid choice. Please select a number between 1 and 4.'
   end
-
-  input = gets.chomp
 end
-
 
 puts 'Thanks for practicing math!'
